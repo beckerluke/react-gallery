@@ -1,18 +1,28 @@
-// import React, { Component } from 'react';
+import React, { Component } from 'react';
 // import axions from 'axions';
 
-// class GalleryItem extends Component {
-//   render() {
-//     return (
-//         <li>Track: {this.props.itemData.track}
-//             <button
-//                     onClick={this.revealDescriptionHandler}
-//             >
-//                 Delete
-//             </button>
-//         </li>
-//     );
-//   }
-// }
+class GalleryItem extends Component {
+    // revealDescriptionHandler = (event) => {
+        
+    // }
 
-// export default GalleryItem;
+  render() {
+    return (
+
+        <li>
+            <img 
+            src={this.props.itemData.path} 
+            alt={this.props.itemData.description} 
+            onClick={this.revealDescriptionHandler}    
+            />
+            {/* <button
+                    
+            >
+                Delete
+            </button> */}
+        </li> 
+    );
+  }
+}
+
+export default GalleryItem;
