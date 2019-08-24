@@ -9,9 +9,6 @@ class GalleryList extends Component {
                     getGalleryListCallback={this.props.getGalleryListCallback}
                     itemData={photo}
                 />;
-        // return  <li>
-        //             <img src={photo.path} alt={photo.description}></img>
-        //         </li> 
     });
   
     return (
