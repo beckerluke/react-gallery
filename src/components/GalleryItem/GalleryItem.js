@@ -43,7 +43,7 @@ class GalleryItem extends Component {
             alt={this.props.itemData.description}
         />
       if (this.state.imageClicked) {
-          galleryImage = <div>{this.props.itemData.description}</div>
+          galleryImage = <div className="photo-description">{this.props.itemData.description}</div>
       }
     return (
         <li>
