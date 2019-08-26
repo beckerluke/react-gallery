@@ -4,18 +4,19 @@ import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList';
 
 class App extends Component {
-
+  
+  // state to hold up-to-date galleryList data from server
   state = {
     galleryList: [],
   }
 
   componentDidMount() {
-    console.log('COMPONENT MOUNTED');
-    
+    // getGalleryList data from server upon page load
     this.getGalleryList();
   }
 
   getGalleryList = () => {
+    // GET request to server for updated data
       axios({
         method: 'GET',
         url: '/gallery'
@@ -23,6 +24,7 @@ class App extends Component {
       .then((response) => {
         console.log('GET galleryList: ', response.data);
         
+        // update state with data from server
         this.setState({
           galleryList: [
             ...response.data,

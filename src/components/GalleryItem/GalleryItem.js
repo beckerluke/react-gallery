@@ -7,6 +7,7 @@ class GalleryItem extends Component {
         imageClicked: false,
     }
 
+    // PUT request to send id to server to update number of likes
     updateLikes(galleryId) {
         axios({
             method: 'PUT',
@@ -14,7 +15,7 @@ class GalleryItem extends Component {
         })
         .then((serverResponse) => {
             console.log('GET error: ', serverResponse);
-            
+            // Calling get function to GET retrieve newest data
             this.props.getGalleryListCallback();
         })
         .catch((err) => {
@@ -25,25 +26,27 @@ class GalleryItem extends Component {
     }
 
     clickLikeHandler = (event, likes) => {
+        // taking update likes by the id of corresponding button clicked
         this.updateLikes(this.props.itemData.id);
     }
 
     revealDescriptionHandler(event) {
+        // set state to toggle back and forth from image to description
         this.setState({
             imageClicked: !this.state.imageClicked
         });
-        console.log(this.state.imageClicked); 
     }
 
   render() {
-      let galleryImage = 
+    let galleryImage = 
         <img 
             src={this.props.itemData.path} 
             alt={this.props.itemData.description}
         />
-      if (this.state.imageClicked) {
-          galleryImage = <div className="photo-description">{this.props.itemData.description}</div>
-      }
+    // conditional rendering to toggle back and forth from image to description  
+    if (this.state.imageClicked) {
+        galleryImage = <div className="photo-description">{this.props.itemData.description}</div>
+    }
     return (
         <li>
             <button onClick={(event) => this.revealDescriptionHandler(event)}>
