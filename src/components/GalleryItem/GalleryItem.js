@@ -10,8 +10,7 @@ class GalleryItem extends Component {
     updateLikes(galleryId) {
         axios({
             method: 'PUT',
-            url: `/gallery/like/${galleryId}`,
-            data: galleryId
+            url: `/gallery/like/${galleryId}`
         })
         .then((serverResponse) => {
             console.log('GET error: ', serverResponse);
