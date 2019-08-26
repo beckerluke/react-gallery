@@ -31,7 +31,7 @@ class GalleryItem extends Component {
 
     revealDescriptionHandler(event) {
         this.setState({
-            imageClicked: true
+            imageClicked: !this.state.imageClicked
         });
         console.log(this.state.imageClicked); 
     }
